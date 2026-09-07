@@ -1,320 +1,909 @@
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-
-    background: black;
-
+    background: #050005;
     color: white;
-
     font-family: Arial, sans-serif;
+    overflow: hidden;
+}
 
+
+/* =========================
+   LOADER
+========================= */
+
+#loader {
+    position: fixed;
+    inset: 0;
+    background: #050005;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    z-index: 999999;
+}
+
+.loader-heart {
+    font-size: 80px;
+    animation: heartbeat 1.2s infinite;
+}
+
+#loader h1 {
+    color: gold;
+    margin-top: 20px;
+    font-size: 28px;
+}
+
+#loader p {
+    color: pink;
+    margin-top: 10px;
+}
+
+@keyframes heartbeat {
+    50% {
+        transform: scale(1.25);
+    }
+}
+
+
+/* =========================
+   PAGES
+========================= */
+
+.page {
+    position: fixed;
+    inset: 0;
 
     min-height: 100vh;
 
-    overflow-x: hidden;
+    display: none;
 
+    overflow-y: auto;
+
+    padding: 50px 20px 110px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255, 20, 147, .3),
+            transparent 40%
+        ),
+        linear-gradient(
+            135deg,
+            #090009,
+            #230023,
+            #050005
+        );
+}
+
+.page.active {
+    display: block;
+    animation: pageIn .8s ease;
+}
+
+@keyframes pageIn {
+    from {
+        opacity: 0;
+        transform: scale(.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 
-.main {
+/* =========================
+   CONTENT
+========================= */
 
-    width: 90%;
-
-    max-width: 700px;
-
+.content {
+    width: 100%;
+    max-width: 1000px;
     margin: auto;
-
-    padding: 30px 10px;
-
+    text-align: center;
 }
 
-
-h1 {
-
-    color: gold;
-
-    font-size: 42px;
-
-    margin-bottom: 15px;
-
+.page-number {
+    color: #ff69b4;
+    letter-spacing: 4px;
+    font-size: 13px;
+    margin-bottom: 20px;
 }
 
+h1,
+h2 {
+    text-shadow: 0 0 20px hotpink;
+}
 
 h2 {
-
-    color: pink;
-
-    margin-bottom: 25px;
-
+    font-size: 42px;
+    color: white;
+    margin-bottom: 10px;
 }
 
+.gold {
+    color: gold;
+}
 
-/* Hearts */
+.subtitle,
+.intro,
+.paragraph {
+    color: #ddd;
+    line-height: 1.8;
+    margin: 15px auto;
+    max-width: 700px;
+}
 
-.hearts {
-
-    color: pink;
-
+.intro {
     font-size: 25px;
-
-    letter-spacing: 15px;
-
-    padding: 15px;
-
-    animation: move 2s infinite;
-
+    color: pink;
 }
 
 
-@keyframes move {
+/* =========================
+   PAGE 1
+========================= */
 
-    0% {
-        transform: translateY(0);
-    }
+.hero {
+    min-height: 90vh;
 
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.small-text {
+    color: pink;
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    font-size: clamp(65px, 15vw, 130px);
+    color: gold;
+    margin: 15px 0;
+}
+
+.big-heart {
+    font-size: 70px;
+    animation: heartbeat 1.5s infinite;
+}
+
+.hero p {
+    max-width: 500px;
+    color: #ddd;
+    font-size: 20px;
+    line-height: 1.7;
+    margin: 20px;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.next-btn,
+.celebrate-btn {
+    border: none;
+
+    padding: 15px 35px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            45deg,
+            #ff1493,
+            #ff0055
+        );
+
+    color: white;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 0 25px hotpink;
+
+    transition: .4s;
+
+    margin-top: 25px;
+}
+
+.next-btn:hover,
+.celebrate-btn:hover {
+    transform: scale(1.08);
+    background: gold;
+    color: black;
+    box-shadow: 0 0 35px gold;
+}
+
+
+/* =========================
+   BIRTHDAY CARD
+========================= */
+
+.birthday-card {
+    max-width: 600px;
+
+    margin: 35px auto;
+
+    padding: 35px;
+
+    background: rgba(255, 255, 255, .08);
+
+    border: 1px solid rgba(255, 105, 180, .5);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 0 30px rgba(255, 20, 147, .3);
+
+    backdrop-filter: blur(10px);
+}
+
+.cake-large {
+    font-size: 90px;
+    animation: bounce 2s infinite;
+}
+
+.birthday-card h3 {
+    color: gold;
+    font-size: 28px;
+    margin: 15px;
+}
+
+.birthday-card p {
+    line-height: 1.8;
+    color: #eee;
+}
+
+@keyframes bounce {
     50% {
-        transform: translateY(-10px);
+        transform: translateY(-15px);
     }
-
-    100% {
-        transform: translateY(0);
-    }
-
 }
 
 
-/* Slideshow */
+/* =========================
+   PHOTO PAGE
+========================= */
 
-.slideshow {
+.photo-container {
+    position: relative;
 
-    background: purple;
+    width: min(90vw, 400px);
 
-    padding: 20px;
-
-    border-radius: 25px;
-
-    box-shadow: 0 0 25px pink;
-
+    margin: 30px auto;
 }
 
-
-.slideshow img {
-
+.photo-container img {
     width: 100%;
-
-    max-width: 400px;
-
-    height: 500px;
+    height: 550px;
 
     object-fit: cover;
 
+    border-radius: 25px;
+
+    border: 5px solid hotpink;
+
+    box-shadow:
+        0 0 25px hotpink,
+        0 0 60px purple;
+
+    cursor: pointer;
+
+    transition: opacity .4s;
+}
+
+.photo-counter {
+    position: absolute;
+
+    right: 15px;
+    bottom: 15px;
+
+    padding: 8px 15px;
+
+    background: rgba(0,0,0,.7);
+
     border-radius: 20px;
 
-    border: 5px solid white;
+    color: gold;
+}
 
+.photo-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.photo-controls button {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    border: 1px solid hotpink;
+
+    background: rgba(255,20,147,.3);
+
+    color: white;
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+.photo-controls button:hover {
+    background: hotpink;
+}
+
+.click-photo {
+    color: #aaa;
+    margin-top: 15px;
+    font-size: 13px;
 }
 
 
-.buttons {
+/* =========================
+   STORY
+========================= */
 
+.story-card {
+    max-width: 700px;
+
+    margin: 30px auto;
+
+    padding: 40px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,20,147,.15),
+            rgba(128,0,128,.2)
+        );
+
+    border: 1px solid rgba(255,105,180,.4);
+
+    box-shadow: 0 0 40px rgba(255,20,147,.2);
+}
+
+.story-icon {
+    font-size: 50px;
+}
+
+.story-card h3 {
+    color: gold;
+    font-size: 30px;
+    margin: 15px;
+}
+
+.story-card p {
+    line-height: 2;
+    color: #eee;
+    margin: 15px;
+}
+
+.story-heart {
+    color: pink;
+    font-size: 24px;
     margin-top: 20px;
+}
+
+
+/* =========================
+   REASONS
+========================= */
+
+.reasons {
+    max-width: 900px;
+
+    margin: 35px auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.reason-card {
+    text-align: left;
+
+    padding: 25px;
+
+    border-radius: 25px;
+
+    background: rgba(255,255,255,.07);
+
+    border: 1px solid rgba(255,105,180,.3);
+
+    transition: .4s;
+}
+
+.reason-card:hover {
+    transform: translateY(-8px);
+
+    border-color: hotpink;
+
+    box-shadow: 0 0 25px rgba(255,20,147,.4);
+}
+
+.reason-card span {
+    color: gold;
+    font-size: 13px;
+}
+
+.reason-card h3 {
+    color: pink;
+    margin: 10px 0;
+}
+
+.reason-card p {
+    color: #ddd;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   LETTER
+========================= */
+
+.letter {
+    max-width: 750px;
+
+    margin: 30px auto;
+
+    padding: 40px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff,
+            #ffeaf5
+        );
+
+    color: #222;
+
+    border-radius: 25px;
+
+    text-align: left;
+
+    box-shadow:
+        0 0 40px hotpink;
+}
+
+.letter h3 {
+    color: deeppink;
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+#typing {
+    white-space: pre-wrap;
+
+    line-height: 2;
+
+    font-size: 18px;
+}
+
+#letterNext:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+}
+
+
+/* =========================
+   DUA
+========================= */
+
+.dua-card {
+    max-width: 700px;
+
+    margin: 30px auto;
+
+    padding: 40px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(128,0,128,.5),
+            rgba(255,20,147,.2)
+        );
+
+    border: 1px solid gold;
+
+    box-shadow: 0 0 35px rgba(255,215,0,.25);
+}
+
+.dua-icon {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.dua-card p {
+    color: #eee;
+
+    line-height: 1.9;
+
+    margin: 18px;
+}
+
+.dua-card h3 {
+    color: gold;
+    margin-top: 25px;
+}
+
+
+/* =========================
+   GIFT
+========================= */
+
+.gift-box {
+    font-size: 130px;
+
+    width: 220px;
+    height: 220px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 40px auto;
+
+    cursor: pointer;
+
+    animation: giftFloat 2s infinite;
+
+    filter:
+        drop-shadow(0 0 20px hotpink);
+}
+
+@keyframes giftFloat {
+    50% {
+        transform: translateY(-15px) rotate(3deg);
+    }
+}
+
+.gift-message {
+    display: none;
+
+    max-width: 650px;
+
+    margin: 30px auto;
+
+    padding: 35px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff1493,
+            #800080
+        );
+
+    box-shadow: 0 0 40px hotpink;
+
+    animation: popup .8s;
+}
+
+.gift-message h3 {
+    font-size: 32px;
+    color: gold;
+    margin-bottom: 20px;
+}
+
+.gift-message p {
+    line-height: 1.8;
+    margin: 10px;
+}
+
+.gift-message h2 {
+    color: gold;
+    margin-top: 20px;
+}
+
+@keyframes popup {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+.final-page {
+    padding-top: 30px;
+}
+
+.final-heart {
+    font-size: 80px;
+    animation: heartbeat 1.2s infinite;
+}
+
+.final-page h1 {
+    font-size: clamp(45px, 10vw, 80px);
+    color: gold;
+}
+
+.final-page h2 {
+    font-size: clamp(40px, 8vw, 70px);
+    color: hotpink;
+}
+
+.final-message {
+    max-width: 600px;
+    margin: 25px auto;
+    font-size: 20px;
+    line-height: 1.8;
+    color: #eee;
+}
+
+.final-cake {
+    font-size: 80px;
+    margin: 25px;
+}
+
+.final-message-box {
+    display: none;
+
+    margin: 30px auto;
+
+    max-width: 600px;
+
+    padding: 25px;
+
+    color: gold;
+
+    font-size: 22px;
+
+    line-height: 1.7;
+
+    border-radius: 25px;
+
+    background: rgba(255,20,147,.15);
+
+    border: 1px solid hotpink;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+#navigation {
+    position: fixed;
+
+    bottom: 20px;
+    left: 50%;
+
+    transform: translateX(-50%);
 
     display: flex;
 
-    justify-content: center;
+    align-items: center;
 
-    gap: 15px;
+    gap: 20px;
 
+    z-index: 9999;
+}
+
+#navigation > button {
+    width: 45px;
+    height: 45px;
+
+    border: 1px solid hotpink;
+
+    border-radius: 50%;
+
+    background: rgba(0,0,0,.6);
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+#dots {
+    display: flex;
+    gap: 7px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #555;
+}
+
+.dot.active {
+    background: hotpink;
+    box-shadow: 0 0 10px hotpink;
 }
 
 
-button {
+/* =========================
+   MUSIC
+========================= */
+
+.music-button {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    padding: 11px 18px;
+
+    border: none;
+
+    border-radius: 30px;
 
     background: deeppink;
 
     color: white;
 
-    border: none;
-
-    padding: 13px 22px;
-
-    border-radius: 25px;
-
-    font-size: 17px;
-
     cursor: pointer;
 
+    z-index: 99999;
+
+    box-shadow: 0 0 15px hotpink;
 }
 
 
-button:hover {
+/* =========================
+   EFFECTS
+========================= */
 
-    background: gold;
-
-    color: black;
-
-}
-
-
-#number {
-
-    margin-top: 15px;
+.star {
+    position: fixed;
 
     color: gold;
 
+    pointer-events: none;
+
+    z-index: 1;
+
+    animation: twinkle 2s infinite;
 }
 
-
-/* Message */
-
-.message {
-
-    background: white;
-
-    color: black;
-
-    margin-top: 30px;
-
-    padding: 25px;
-
-    border-radius: 20px;
-
+@keyframes twinkle {
+    50% {
+        opacity: .1;
+    }
 }
 
+.heart {
+    position: fixed;
 
-.message h2 {
+    bottom: -50px;
 
-    color: purple;
+    pointer-events: none;
 
+    z-index: 20;
+
+    animation: heartUp 7s linear forwards;
 }
 
-
-.message p {
-
-    font-size: 18px;
-
-    line-height: 30px;
-
-}
-
-
-/* Surprise */
-
-.surprise {
-
-    margin-top: 30px;
-
-    background: red;
-
-    font-size: 19px;
-
-    padding: 15px 30px;
-
-}
-
-
-#surpriseBox {
-
-    display: none;
-
-    background: pink;
-
-    color: black;
-
-    margin-top: 25px;
-
-    padding: 30px;
-
-    border-radius: 20px;
-
-    animation: show 1s;
-
-}
-
-
-#surpriseBox h2 {
-
-    color: purple;
-
-}
-
-
-#surpriseBox p {
-
-    font-size: 18px;
-
-    line-height: 30px;
-
-}
-
-
-@keyframes show {
-
-    from {
-
-        transform: scale(0);
+@keyframes heartUp {
+    to {
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
 
         opacity: 0;
-
     }
+}
 
+.balloon {
+    position: fixed;
+
+    bottom: -100px;
+
+    pointer-events: none;
+
+    z-index: 20;
+
+    animation: balloonUp 12s linear forwards;
+}
+
+@keyframes balloonUp {
     to {
-
-        transform: scale(1);
-
-        opacity: 1;
-
+        transform: translateY(-120vh);
     }
-
 }
 
 
-/* Footer */
+/* =========================
+   MOBILE
+========================= */
 
-footer {
+@media(max-width: 700px) {
 
-    margin-top: 40px;
-
-    padding: 20px;
-
-    color: pink;
-
-}
-
-
-/* Mobile */
-
-@media (max-width: 600px) {
-
-    h1 {
-
-        font-size: 30px;
-
+    .page {
+        padding: 35px 15px 100px;
     }
 
     h2 {
-
-        font-size: 21px;
-
+        font-size: 30px;
     }
 
-    .slideshow img {
-
-        height: 400px;
-
+    .hero h1 {
+        font-size: 65px;
     }
 
-    .buttons button {
-
-        padding: 12px 16px;
-
-        font-size: 15px;
-
+    .hero p {
+        font-size: 17px;
     }
 
+    .photo-container img {
+        height: 450px;
+    }
+
+    .reasons {
+        grid-template-columns: 1fr;
+    }
+
+    .reason-card {
+        text-align: center;
+    }
+
+    .letter {
+        padding: 25px 20px;
+    }
+
+    #typing {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    .dua-card {
+        padding: 25px 15px;
+    }
+
+    .gift-box {
+        font-size: 100px;
+        width: 180px;
+        height: 180px;
+    }
+
+    .music-button {
+        right: 10px;
+        bottom: 80px;
+        font-size: 12px;
+    }
+
+    #navigation {
+        bottom: 15px;
+    }
 }

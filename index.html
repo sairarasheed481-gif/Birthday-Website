@@ -1,107 +1,532 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>Happy Birthday ❤️</title>
+    <title>Happy Birthday Neelo ❤️</title>
 
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
-    <div class="hearts">❤️ ✨ ❤️ ✨ ❤️</div>
+    <!-- LOADER -->
+    <div id="loader">
+        <div>
+            <div class="loader-heart">❤️</div>
+            <h1>Preparing Your Surprise...</h1>
+            <p>For Neelo ✨</p>
+        </div>
+    </div>
 
-    <div class="main">
 
-        <h1>🎂 Happy Birthday 🎂</h1>
+    <!-- BACKGROUND -->
+    <div id="stars"></div>
+    <div id="galaxy"></div>
+    <div id="hearts"></div>
+    <div id="balloons"></div>
 
-        <h2>For Someone Very Special ❤️</h2>
 
-        <!-- SLIDESHOW -->
+    <!-- MUSIC -->
+    <audio id="music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
 
-        <div class="slideshow">
 
-            <img id="slide"
-                 src="1.jpg"
-                 alt="Birthday Photo">
+    <!-- =========================
+         PAGE 1
+    ========================== -->
 
-            <div class="buttons">
+    <section class="page active" id="page1">
 
-                <button onclick="previousSlide()">
-                    ⬅ Previous
+        <div class="hero">
+
+            <div class="small-text">
+                ✨ A Special Surprise For ✨
+            </div>
+
+            <h1>Neelo ❤️</h1>
+
+            <div class="big-heart">❤️</div>
+
+            <p>
+                Someone very special deserves
+                something beautiful today...
+            </p>
+
+            <button class="next-btn" onclick="startSurprise()">
+                Open Your Surprise 🎁
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PAGE 2
+    ========================== -->
+
+    <section class="page" id="page2">
+
+        <div class="content">
+
+            <div class="page-number">01 / 09</div>
+
+            <h2>Happy Birthday</h2>
+
+            <h1 class="gold">
+                My Better Half ❤️
+            </h1>
+
+            <p class="intro">
+                Happy Birthday, <strong>Neelo</strong>! 🎂
+            </p>
+
+            <p class="paragraph">
+                Today is not just another day.
+                Today is the day someone incredibly
+                special came into this world.
+            </p>
+
+            <div class="birthday-card">
+
+                <div class="cake-large">🎂</div>
+
+                <h3>Happy Birthday Neelo ❤️</h3>
+
+                <p>
+                    May Allah fill your life with
+                    happiness, peace, love and success.
+                    Ameen 🤍
+                </p>
+
+            </div>
+
+            <button class="next-btn" onclick="nextPage()">
+                Continue ❤️
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PAGE 3
+    ========================== -->
+
+    <section class="page" id="page3">
+
+        <div class="content">
+
+            <h2>MY SOULMATE 📸</h2>
+
+            <p class="subtitle">
+                Every picture holds a little piece of happiness.
+            </p>
+
+            <div class="photo-container">
+
+                <img
+                    src="1.jpg"
+                    id="slide"
+                    alt="Neelo Memory"
+                >
+            </div>
+
+            <div class="photo-controls">
+
+                <button onclick="previousPhoto()">
+                    ❮
                 </button>
 
-                <button onclick="nextSlide()">
-                    Next ➡
+                <button onclick="nextPhoto()">
+                    ❯
                 </button>
 
             </div>
 
-            <p id="number">
-                Photo 1 of 5
+            <p class="click-photo">
+                Tap the photo for fullscreen ✨
             </p>
+
+            <button class="next-btn" onclick="nextPage()">
+                More For You 💕
+            </button>
 
         </div>
 
+    </section>
 
-        <!-- MESSAGE -->
 
-        <div class="message">
+    <!-- =========================
+         PAGE 4
+    ========================== -->
 
-            <h2>💌 A Little Message For You</h2>
+    <section class="page" id="page4">
 
-            <p id="messageText">
-                Wishing you a beautiful birthday
-                filled with happiness, smiles and
-                wonderful memories. ❤️
-            </p>
+        <div class="content">
+
+            <div class="page-number">03 / 09</div>
+
+            <h2>Our Little Story 💕</h2>
+
+            <div class="story-card">
+
+                <div class="story-icon">
+                    ❤️
+                </div>
+
+                <h3>Dear Neelo</h3>
+
+                <p>
+                    Some people enter our lives
+                    and quietly make everything
+                    more beautiful.
+                </p>
+
+                <p>
+                    You are one of those people.
+                    Your smile makes ordinary moments
+                    feel special.
+                </p>
+
+                <p>
+                    Your presence brings peace,
+                    your words bring happiness,
+                    and your existence makes life
+                    a little brighter.
+                </p>
+
+                <p>
+                    I don't need a perfect life.
+                    I just want beautiful moments
+                    with you.
+                </p>
+
+                <div class="story-heart">
+                    Forever ❤️
+                </div>
+
+            </div>
+
+            <button class="next-btn" onclick="nextPage()">
+                Keep Going 💖
+            </button>
 
         </div>
 
-
-        <!-- SURPRISE -->
-
-        <button class="surprise"
-                onclick="showSurprise()">
-
-            🎁 Open Your Surprise
-
-        </button>
+    </section>
 
 
-        <div id="surpriseBox">
+    <!-- =========================
+         PAGE 5
+    ========================== -->
 
-            <h2>🎉 Surprise! 🎉</h2>
+    <section class="page" id="page5">
+
+        <div class="content">
+
+            <div class="page-number">04 / 09</div>
+
+            <h2>Reasons I Love You ❤️</h2>
+
+            <div class="reasons">
+
+                <div class="reason-card">
+                    <span>01</span>
+                    <h3>Your Smile 😊</h3>
+                    <p>
+                        Your smile can instantly
+                        make my day better.
+                    </p>
+                </div>
+
+                <div class="reason-card">
+                    <span>02</span>
+                    <h3>Your Heart 🤍</h3>
+                    <p>
+                        Your beautiful heart makes
+                        you truly special.
+                    </p>
+                </div>
+
+                <div class="reason-card">
+                    <span>03</span>
+                    <h3>Your Presence ✨</h3>
+                    <p>
+                        Everything feels better
+                        when you are around.
+                    </p>
+                </div>
+
+                <div class="reason-card">
+                    <span>04</span>
+                    <h3>Simply You ❤️</h3>
+                    <p>
+                        I don't need a reason.
+                        I love you because you are you.
+                    </p>
+                </div>
+
+            </div>
+
+            <button class="next-btn" onclick="nextPage()">
+                One More Thing 💌
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PAGE 6
+    ========================== -->
+
+    <section class="page" id="page6">
+
+        <div class="content">
+
+            <div class="page-number">05 / 09</div>
+
+            <h2>A Letter For You 💌</h2>
+
+            <div class="letter">
+
+                <h3>Dear Neelo ❤️</h3>
+
+                <p id="typing"></p>
+
+            </div>
+
+            <button
+                class="next-btn"
+                id="letterNext"
+                onclick="nextPage()"
+                disabled
+            >
+                Continue 💕
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PAGE 7
+    ========================== -->
+
+    <section class="page" id="page7">
+
+        <div class="content">
+
+            <div class="page-number">06 / 09</div>
+
+            <h2>Birthday Dua 🤲</h2>
+
+            <div class="dua-card">
+
+                <div class="dua-icon">
+                    🤲
+                </div>
+
+                <p>
+                    May Allah bless Neelo with
+                    endless happiness.
+                </p>
+
+                <p>
+                    May Allah give her good health,
+                    success, peace and prosperity.
+                </p>
+
+                <p>
+                    May every beautiful dream
+                    in her heart come true.
+                </p>
+
+                <p>
+                    May Allah protect her from every
+                    difficulty and fill her life
+                    with beautiful moments.
+                </p>
+
+                <h3>
+                    Ameen Ya Rabb 🤍
+                </h3>
+
+            </div>
+
+            <button class="next-btn" onclick="nextPage()">
+                Open Your Gift 🎁
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PAGE 8
+    ========================== -->
+
+    <section class="page" id="page8">
+
+        <div class="content">
+
+            <div class="page-number">07 / 09</div>
+
+            <h2>Your Birthday Gift 🎁</h2>
+
+            <div
+                class="gift-box"
+                id="giftBox"
+                onclick="openGift()"
+            >
+                🎁
+            </div>
+
+            <p id="giftInstruction">
+                Tap the gift to open it ❤️
+            </p>
+
+            <div
+                id="giftMessage"
+                class="gift-message"
+            >
+
+                <h3>
+                    I Love You Forever ❤️
+                </h3>
+
+                <p>
+                    Neelo, you are one of the
+                    most beautiful parts of my life.
+                </p>
+
+                <p>
+                    No expensive gift can ever
+                    explain how special you are.
+                </p>
+
+                <p>
+                    This little surprise is just
+                    a small way of saying...
+                </p>
+
+                <h2>
+                    I LOVE YOU ❤️
+                </h2>
+
+            </div>
+
+            <button
+                class="next-btn"
+                id="giftNext"
+                onclick="nextPage()"
+                style="display:none;"
+            >
+                Final Surprise 🎉
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PAGE 9
+    ========================== -->
+
+    <section class="page" id="page9">
+
+        <div class="content final-page">
+
+            <div class="page-number">08 / 09</div>
+
+            <div class="final-heart">
+                ❤️
+            </div>
+
+            <h1>
+                Happy Birthday
+            </h1>
+
+            <h2>
+                Neelo ❤️
+            </h2>
+
+            <p class="final-message">
+                May your life always be filled
+                with love, laughter and happiness.
+            </p>
 
             <p>
-                You are truly a very special person. ❤️
-                <br><br>
-                May your life always be filled with
-                happiness, success and beautiful moments.
-                <br><br>
-                Happy Birthday! 🎂✨
+                May Allah always keep you smiling.
+                Ameen 🤍
             </p>
+
+            <div class="final-cake">
+                🎂✨
+            </div>
+
+            <button
+                class="celebrate-btn"
+                onclick="celebrate()"
+            >
+                Celebrate 🎉
+            </button>
+
+            <div
+                id="finalMessage"
+                class="final-message-box"
+            >
+                You are loved more than words
+                can ever explain. ❤️
+                <br><br>
+                Forever & Always,
+                <br>
+                Neelo 💕
+            </div>
 
         </div>
 
+    </section>
 
-        <footer>
 
-            Made With ❤️ Just For You
+    <!-- NAVIGATION -->
 
-        </footer>
+    <div id="navigation">
+
+        <button onclick="previousPage()">
+            ❮
+        </button>
+
+        <div id="dots"></div>
+
+        <button onclick="nextPage()">
+            ❯
+        </button>
 
     </div>
+
+
+    <!-- MUSIC BUTTON -->
+
+    <button
+        id="musicButton"
+        class="music-button"
+        onclick="toggleMusic()"
+    >
+        🎵 Music
+    </button>
+
 
     <script src="script.js"></script>
 
 </body>
-
 </html>
